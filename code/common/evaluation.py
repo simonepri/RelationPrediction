@@ -66,7 +66,7 @@ class MrrSummary():
         return 'MRR'
 
     def hits_string(self, n):
-        return 'H@'+str(n)
+        return "H@%.3f" % n
 
     def degree_string(self):
         return "Degree"
@@ -80,9 +80,9 @@ class MrrSummary():
 
         for item in items:
             print(item, end='\t')
-            print(str(round(self.results['Raw'][item],3)), end='\t')
-            print(str(round(self.results['Filtered'][item],3)))
             
+            print("%.3f" % self.results['Raw'][item], end='\t')
+            print("%.3f" % self.results['Filtered'][item])
     def get_mrr(self, ranks):
         mean_reciprocal_rank = 0.0
         for rank in ranks:
@@ -193,7 +193,7 @@ class AccuracySummary():
 
         for item in items:
             print(item, end='\t')
-            print(str(round(self.results['Filtered'][item],3)), end='\n')
+            print("%.3f" % self.results['Filtered'][item], end='\n')
 
 
 class AccuracyScore():
