@@ -173,6 +173,8 @@ def sample_edge_neighborhood(triplets, sample_size):
         if np.sum(weights) == 0:
             weights = np.ones_like(weights)
             weights[np.where(sample_counts == 0)] = 0
+        if np.sum(weights) == 0:
+            break
 
         probabilities = (weights) / np.sum(weights)
         chosen_vertex = np.random.choice(np.arange(degrees.shape[0]), p=probabilities)
